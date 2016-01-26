@@ -12,9 +12,14 @@ public class AmqRESTService {
 
 	public static void sendMessage() throws Exception {
 		
+		String host = System.getenv("AMQ_HOST");
+		
+		String port = System.getenv("AMQ_PORT");
+		
+		
 		// Shouldn't create a connection/session for every message send, but this should be fine
 		// for the PoC
-	    ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory("tcp://localhost:61616");
+	    ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory("tcp://" + host + ":" + port);
 	
 	    Connection connection = cf.createConnection("admin","admin");
 	
