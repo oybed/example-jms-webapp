@@ -49,12 +49,11 @@ public class MemberResourceRESTService {
    @Produces("text/plain")
    public String sendMessage() {
 	   try{
-		   AmqRESTService.sendMessage();
+		    return AmqRESTService.sendMessage();
 		   
 	   } catch(Exception e) {
 		   return "Failed to send message";
 	   }
 	   
-	   return "Message sent";
    }
 }
